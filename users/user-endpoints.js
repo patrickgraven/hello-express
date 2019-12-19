@@ -6,6 +6,12 @@ module.exports = app => {
   app.get("/users/:userId/books/:bookId", (req, res) => {
     const userId = req.params.userId;
     const bookId = req.params.bookId;
-    res.send("Hi " + userId + ". Your book is: " + bookId);
+    const message = "Hi " + userId + ". Your book is: " + bookId;
+
+    res.json({
+      xyz: userId,
+      bookId,
+      message
+    });
   });
 };
