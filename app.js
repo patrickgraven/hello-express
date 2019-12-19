@@ -1,13 +1,21 @@
 const express = require("express");
+const dotenv = require("dotenv").config();
 const userEndpoints = require("./users/user-endpoints");
+
+const dbHost = process.env.DB_HOST;
+const dbUser = process.env.DB_USER;
+const dbPwd = process.env.DB_PWD;
+const dbSchema = process.env.DB_SCHEMA;
+
+console.log("dbUser=", dbUser);
 
 var knex = require("knex")({
   client: "mysql",
   connection: {
-    host: "aagzh673hjmzd1.cwbhxnznx3bb.us-west-2.rds.amazonaws.com",
-    user: "patrickgraven",
-    password: "patrickgraven",
-    database: "hello"
+    host: dbHost,
+    user: dbUser,
+    password: dbPwd,
+    database: dbSchema
   }
 });
 

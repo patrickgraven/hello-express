@@ -1,5 +1,5 @@
 /node_modules
-.elasticbeanstalk/
+.env
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
