@@ -12,7 +12,8 @@ userEndpoints(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  res.status(404);
+  res.json({ message: "not found", status: 404 });
 });
 
 // error handler
