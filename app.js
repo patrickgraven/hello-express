@@ -1,14 +1,22 @@
 const express = require("express");
 const userEndpoints = require("./users/user-endpoints");
 
+var knex = require("knex")({
+  client: "mysql",
+  connection: {
+    host: "aagzh673hjmzd1.cwbhxnznx3bb.us-west-2.rds.amazonaws.com",
+    user: "patrickgraven",
+    password: "patrickgraven",
+    database: "hello"
+  }
+});
+
 const app = express();
 const port = 8081;
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
-app.get("/pjg", (req, res) => res.send("Hello PJG you!"));
-
-userEndpoints(app);
+userEndpoints(app, knex);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -28,7 +36,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(port, () =>
-  console.log(`Example app listening on port ${port} at ${Date.now()}!`)
+  console.log(`Hello app listening on port ${port} at ${Date.now()}!`)
 );
 
 console.log("running server: " + Date.now());

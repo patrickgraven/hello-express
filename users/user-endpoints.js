@@ -1,17 +1,16 @@
-module.exports = app => {
-  app.get("/users", (req, res) => res.send("Show all users here"));
-
-  app.get("/users/pjg", (req, res) => res.send("Show all PJG user here"));
-
-  app.get("/users/:userId/books/:bookId", (req, res) => {
+module.exports = (app, knex) => {
+  app.get("/user/:userId", async (req, res) => {
     const userId = req.params.userId;
-    const bookId = req.params.bookId;
-    const message = "Hi " + userId + ". Your book is: " + bookId;
+    const user = await knex("user").where("user_id", userId);
 
     res.json({
-      xyz: userId,
-      bookId,
-      message
+      user
     });
+  });
+
+  app.get("/users", (req, res) => {
+    const message = "Show all users";
+
+    res.send(message);
   });
 };
