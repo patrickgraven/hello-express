@@ -2,7 +2,7 @@ const express = require("express");
 const userEndpoints = require("./users/user-endpoints");
 
 const app = express();
-const port = 3000;
+const port = 8081;
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
@@ -26,4 +26,8 @@ app.use(function(err, req, res, next) {
   res.render("error");
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () =>
+  console.log(`Example app listening on port ${port} at ${Date.now()}!`)
+);
+
+console.log("running server: " + Date.now());
