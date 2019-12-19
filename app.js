@@ -2,7 +2,7 @@ const express = require("express");
 const userEndpoints = require("./users/user-endpoints");
 
 const app = express();
-const port = 8080;
+const port = 3000;
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
