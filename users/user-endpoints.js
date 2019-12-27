@@ -13,4 +13,10 @@ module.exports = (app, knex) => {
 
     res.send(message);
   });
+
+  app.get("/paul", (req, res) => {
+    const message = "Hi Paul";
+
+    res.send(message);
+  });
 };

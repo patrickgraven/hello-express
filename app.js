@@ -29,7 +29,7 @@ userEndpoints(app, knex);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   res.status(404);
-  res.json({ message: "not found", status: 404 });
+  res.json({ message: "not found, sorry", status: 404 });
 });
 
 // error handler
